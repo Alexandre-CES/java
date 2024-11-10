@@ -1,0 +1,40 @@
+Imagine que você está desenvolvendo um sistema de gerenciamento de uma biblioteca. Neste sistema, é necessário modelar livros, autores, usuários, empréstimos e devoluções. Cada livro possui informações como título, autor e gênero. Os autores têm nome, nacionalidade e obras publicadas. Os usuários da biblioteca têm nome, idade e histórico de empréstimos. Os empréstimos registram a data de retirada e devolução, além do livro e usuário envolvidos.
+
+Com base no cenário descrito, analise qual paradigma de programação seria mais indicado para implementar o sistema de gerenciamento da biblioteca:
+
+a) programação estruturada
+b) programação imperativa
+c) programação orientada a objetos
+d) programação funcional
+
+Justifique sua escolha considerando a estrutura e as interações entre os objetos do sistema.
+
+Para facilitar, considere pontos como: 
+
+#Estrutura e interação das entidades do sistema (Livros, autores, usuários e demais)
+#Reuso
+#Qual paradigma facilitaria a evolução do sistema, no futuro
+#Eficiência, dado o cenário apresentado
+
+Dica: A combinação dos paradigmas de programação pode ser viável em certos contextos, mas geralmente não é recomendada devido a diferenças fundamentais entre os paradigmas
+
+
+Resposta: C
+
+#Estrutura e interação de entidades do sistema:
+
+Cada componente pode ser modelado com uma classe com pripriedades e métodos próprios:
+Livro: Classe com propriedades como título, autor e gênero.
+Autor: Classe com propriedades como nome, nacionalidade e obras publicadas.
+Usuário: Classe com propriedades como nome, idade e cpf.
+Empréstimo: Classe com propriedades como data de retirada, data de devolução, livro e usuário envolvidos.
+
+#Reuso:
+A POO permite reutilizar o código por meio da herança, por exemplo. Podendo utilizar algo como ids em cada item da biblioteca, então criando uma classe base ITemBiblioteca que a classe Livro poderia herdar.
+
+#Evolução:
+Com o crescimento do sistema, novas classes e funcionalidades podem ser adicionadas sem que as antigas deixem de existir.
+
+#Eficiência:
+Segurança: Mantém integridade dos dados, pois as propriedades da classe são protegidas e só podem ser acessadas e modificadas por métodos específicos
+Polimorfismo: Diferentes classes podem ser tratadas de maneira uniforme po meio de interfaces ou classes base.
