@@ -1,9 +1,9 @@
 public class Usuario{
-  private Int idade;
+  private int idade;
   private Emprestimo[] historicoEmprestimos;
   
   public Usuario(String nome, Int idade){
-    this.setNome(nome);
+    super(nome);
     this.idade = idade;
   }
  
