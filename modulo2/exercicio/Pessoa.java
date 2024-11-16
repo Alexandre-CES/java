@@ -1,18 +1,25 @@
 /* *classe feita para ser herdada por Usuario e Autor
   
   suas propriedades serão privadas e seus métodos serão protegidos*/
-  
-protected class Pessoa{
+
+import java.util.ArrayList;
+
+public class Pessoa{
   private String nome;
-  private Livro[] livros;
+  private ArrayList<Livro> livros;
   private int quantidadeMaxLivros;
+
+  public Pessoa(String nome){
+    this.nome = nome;
+    this.livros = new ArrayList<>();
+  }
   
   //getters
   protected String getNome(){
     return this.nome;
   }
   
-  protected String[] getLivros(){
+  protected ArrayList<Livro> getLivros(){
     return this.livros;
   }
   
@@ -21,7 +28,7 @@ protected class Pessoa{
   }
 
   //setters
-  protected void setLivros(Livro[] livros){
+  protected void setLivros(ArrayList<Livro> livros){
     this.livros = livros;
   }
   

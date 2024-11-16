@@ -5,7 +5,7 @@ public class Livro{
     private boolean isDisponivel;
 
     //constructor
-    public void Livro(String titulo, Autor autor, String genero){
+    public Livro(String titulo, Autor autor, String genero){
         this.titulo = titulo;
         this.autor = autor;
         this.genero = genero;
@@ -42,9 +42,9 @@ public class Livro{
     //função sem retorno
     public void validarDisponibilidade(){
         if(this.isDisponivel()){
-            System.out.printIn("O livro está disponível");
+            System.out.println("the book is avaible");
         }else{
-            System.out.printIn("O livro está disponível");
+            System.out.println("the book not is avaible");
         }
     }
 }

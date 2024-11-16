@@ -20,9 +20,7 @@ public class Emprestimo{
     this.dataDevolucao = dataDevolucao;
     
     //adicionar livro na lista de livros do usuário   
-    Livro[] livrosUsuario = this.usuario.getLivros();
-    livrosUsuario.add(livro);
-    usuario.setLivros(livrosUsuario);
+    usuario.getLivrosEmprestados().add(livro);
     
     livro.setIsDisponivel(false);
   }

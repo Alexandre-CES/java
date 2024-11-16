@@ -1,22 +1,37 @@
+import java.util.ArrayList;
+
 public class Autor extends Pessoa{
   private String nacionalidade;
 
   //constructor
-  public void Autor(String nome, String nacionalidade){
+  public Autor(String nome, String nacionalidade){
     super(nome);
     this.nacionalidade = nacionalidade;
   }
   
   //getters
+  public String getNome(){
+    return super.getNome();
+  }
+  
+  public ArrayList<Livro> getObrasPublicadas(){
+    return super.getLivros();
+  }
+  
+  public ArrayList<Livro> getObrasPublicadasPorGenero(String genero){
+    return super.getLivros();
+  }
+
   public String getNacionalidade(){
     return this.nacionalidade;
   }
-  
-  public Livro[] getObrasPublicadas(){
-    return this.getLivros();
+
+  //setters
+  public void setMaxObras(int quantidade){
+    super.setQuantidadeMaxLivros(quantidade);
   }
-  
-  public Livro[] getObrasPublicadasPorGenero(String genero){
-    
+
+  public void setLivros(ArrayList<Livro> livros){
+    super.setLivros(livros);
   }
 }

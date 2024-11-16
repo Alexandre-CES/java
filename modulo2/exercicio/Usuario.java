@@ -1,19 +1,38 @@
-public class Usuario{
+import java.util.ArrayList;
+
+public class Usuario extends Pessoa{
   private int idade;
   private Emprestimo[] historicoEmprestimos;
 
   //constructor
-  public Usuario(String nome, Int idade){
+  public Usuario(String nome, int idade){
     super(nome);
     this.idade = idade;
   }
  
   //getters
-  public Int getIdade(){
+  public String getNome(){
+    return super.getNome();
+  }
+
+  public int getMaxLivrosEmprestados(){
+    return super.getQuantidadeMaxLivros();
+  }
+
+  public ArrayList<Livro> getLivrosEmprestados(){
+    return super.getLivros();
+  }
+
+  public int getIdade(){
     return this.idade;
   } 
   
-  public Emprestimos[] getHistoricoEmprestimos(){
+  public Emprestimo[] getHistoricoEmprestimos(){
     return this.historicoEmprestimos;
+  }
+
+  //setters
+  public void setMaxLivrosEmprestados(int quantidade){
+    super.setQuantidadeMaxLivros(quantidade);
   }
 }
