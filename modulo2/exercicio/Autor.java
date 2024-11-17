@@ -19,7 +19,17 @@ public class Autor extends Pessoa{
   }
   
   public ArrayList<Livro> getObrasPublicadasPorGenero(String genero){
-    return super.getLivros();
+    ArrayList<Livro> livrosPorGenero = new ArrayList<>();
+    
+    ArrayList<Livro> obras = super.getLivros();
+    
+    for (Livro livro : obras) {
+      if (livro.getGenero().equalsIgnoreCase(genero)) {
+        livrosPorGenero.add(livro);
+      }
+    }
+    
+    return livrosPorGenero;
   }
 
   public String getNacionalidade(){

@@ -1,7 +1,3 @@
-/* *classe feita para ser herdada por Usuario e Autor
-  
-  suas propriedades serão privadas e seus métodos serão protegidos*/
-
 import java.util.ArrayList;
 
 public class Pessoa{

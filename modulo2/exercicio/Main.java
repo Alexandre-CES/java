@@ -2,6 +2,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ArrayList;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 
 public class Main{
   public static void main(String[] args){
@@ -17,14 +19,15 @@ public class Main{
     Usuario usuario1 = new Usuario("Lucas", 13);
     usuario1.setMaxLivrosEmprestados(2);
 
-    String dataRetiradaStr = "Wed May 08 23:37:21 BRT 2024";
-    String dataDevolucaoStr = "Wed May 08 23:37:21 BRT 2024";
-
     //primeira simulação de emprestimo, sem mostrar output
     try {
-      SimpleDateFormat formato = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
-      Date dataRetirada = formato.parse(dataRetiradaStr);
-      Date dataDevolucao = formato.parse(dataDevolucaoStr);
+    
+      //configurando formato
+      SimpleDateFormat sdf = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.ENGLISH);
+      
+      //converter string para date
+      Date dataRetirada = sdf.parse("Wed May 08 23:37:21 BRT 2024");
+      Date dataDevolucao = sdf.parse("Wed May 08 23:37:21 BRT 2024");
 
       Emprestimo emprestimo = new Emprestimo(livro, usuario1, dataRetirada, dataDevolucao);
 
@@ -32,14 +35,14 @@ public class Main{
       usuario2.setMaxLivrosEmprestados(2);
       
       //segunda simulação de emprestimo. Se não funcionar, deu certo
-      fazerEmprestimo(livro, usuario2, dataRetiradaStr, dataDevolucaoStr);
+      fazerEmprestimo(livro, usuario2, sdf, dataRetirada, dataDevolucao);
       
     } catch (ParseException e) {
-      System.out.println("Erro ao formatar a data: " + e.getMessage());
+      System.out.println("(1)Erro ao formatar a data: " + e.getMessage());
     }
   }
   
-  public static void fazerEmprestimo(Livro livro, Usuario usuario, String dataRetiradaStr, String dataDevolucaoStr){
+  public static void fazerEmprestimo(Livro livro, Usuario usuario, SimpleDateFormat sdf, Date dataRetirada, Date dataDevolucao){
     
     int livrosComUsuario = usuario.getLivrosEmprestados().size();
     int livrosMaxUsuario = usuario.getMaxLivrosEmprestados();
@@ -56,6 +59,8 @@ public class Main{
     String genero = livro.getGenero();
     String nome = usuario.getNome();
     int idade = usuario.getIdade();
+    String dataRetiradaStr = sdf.format(dataRetirada);
+    String dataDevolucaoStr = sdf.format(dataDevolucao);
     
     //showing op infos
     livro.validarDisponibilidade();
@@ -69,15 +74,7 @@ public class Main{
     
     //fazer operação de livro estiver disponível
     if(livro.isDisponivel()){
-      try {
-        SimpleDateFormat formato = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy");
-        Date dataRetirada = formato.parse(dataRetiradaStr);
-        Date dataDevolucao = formato.parse(dataDevolucaoStr);
-
-        Emprestimo emprestimo = new Emprestimo(livro, usuario, dataRetirada, dataDevolucao);
-      } catch (ParseException e) {
-          System.out.println("Erro ao formatar a data: " + e.getMessage());
-      }
+      Emprestimo emprestimo = new Emprestimo(livro, usuario, dataRetirada, dataDevolucao);
     }else{
       return;
     }
